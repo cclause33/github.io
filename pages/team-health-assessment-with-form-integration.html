@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A shared view of how the team works, learns, and adapts.">
+<title>Team Health Assessment | Building Better Organizations</title>
+<link rel="stylesheet" href="https://cclause33.github.io/github.io/assets/style.css">
+<style>
+/* Page-specific assessment styles layered on the same shared BBO stylesheet as OLIA. */
+.assessment-column { max-width: 920px; margin: 0 auto; }
+.assessment-card {
+  background: var(--white); border: 1px solid var(--line); border-radius: 16px;
+  padding: 24px; margin: 18px 0; box-shadow: var(--shadow);
+}
+.notice {
+  background: var(--sage); border-left: 4px solid var(--accent);
+  border-radius: 8px; padding: 16px; margin: 0 0 18px;
+}
+.grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 18px; }
+.assessment-card label { display:block; font-weight:650; margin:12px 0 6px; }
+.assessment-card input:not([type=radio]), .assessment-card textarea, .assessment-card select {
+  width:100%; font:inherit; padding:11px 12px; border:1px solid #b9c7ce;
+  border-radius:8px; background:white; color:var(--ink);
+}
+.assessment-card textarea { min-height:75px; resize:vertical; }
+.btn { display:inline-block; border:0; border-radius:9px; padding:11px 17px; font:inherit;
+  font-weight:700; cursor:pointer; background:var(--forest); color:white; text-decoration:none; }
+.btn:hover { background:var(--accent); color:white; }
+.btn.secondary { background:white; color:var(--forest); border:1px solid var(--line); }
+.btn:disabled { opacity:.5; cursor:not-allowed; }
+.hidden { display:none!important; }
+.error { color:#a12727; font-weight:650; }
+.success { color:#236347; font-weight:650; }
+.domain { border-top:1px solid var(--line); padding:18px 0; }
+.question { padding:13px 0; border-bottom:1px solid #edf0f2; }
+.question:last-child { border-bottom:0; }
+.scale { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:7px; margin-top:10px; }
+.scale label { font-size:.82rem; font-weight:500; text-align:center; background:#f7f9fa;
+  border:1px solid var(--line); padding:9px 4px; border-radius:8px; margin:0; cursor:pointer; }
+.scale input { width:auto; display:block; margin:0 auto 5px; }
+.bar { height:10px; background:#e6ecef; border-radius:99px; overflow:hidden; }
+.bar span { display:block; height:100%; background:var(--accent); }
+.score-row { display:grid; grid-template-columns:140px 1fr 55px; align-items:center; gap:12px; margin:12px 0; }
+.score-row strong { font-size:.92rem; }
+.small { font-size:.85rem; }
+@media(max-width:720px) {
+  .assessment-card { padding:18px; }
+  .scale { gap:3px; }
+  .scale label { font-size:.7rem; padding:7px 2px; }
+  .score-row { grid-template-columns:105px 1fr 48px; gap:7px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="https://cclause33.github.io/github.io/index.html">Building Better Organizations</a>
+      <nav aria-label="Main navigation">
+        <a href="https://cclause33.github.io/github.io/index.html">Home</a>
+        <a href="https://cclause33.github.io/github.io/pages/team-health-assessment.html" aria-current="page">Team Health</a>
+        <a href="https://cclause33.github.io/github.io/pages/olia.html">OLIA</a>
+        <a href="https://cclause33.github.io/github.io/pages/observation-journal.html">Observation Journal</a>
+        <a href="https://cclause33.github.io/github.io/pages/writing-and-observations.html">Ideas &amp; Insights</a>
+        <a href="https://cclause33.github.io/github.io/pages/connect.html">Connect</a>
+      </nav>
+    </div>
+    <section class="hero">
+      <div class="eyebrow">Team Development</div>
+      <h1>Team Health Assessment</h1>
+      <p>A shared view of how the team works, learns, and adapts.</p>
+    </section>
+  </div>
+</header>
+<main class="wrap">
+  <div class="assessment-column">
+    <div class="notice"><strong>Confidentiality note:</strong> Do not include names or identifying details in open-ended responses. This tool is designed to show compiled team results, not individual answers. A minimum of two submissions is required before the coordinator can view a team report. With very small groups, anonymity cannot be guaranteed.</div>
+
+    <section class="assessment-card">
+      <span class="pill">Assessment</span>
+      <h2>What the assessment measures</h2>
+      <p>The Team Health Assessment is a diagnostic tool designed to help teams understand how effectively they work, perform, learn, and adapt. It measures five dimensions of team health:</p>
+      <ul>
+        <li><strong>Clarity:</strong> How well team members understand their purpose, priorities, roles, and expectations.</li>
+        <li><strong>Performance:</strong> How consistently the team follows through on commitments, manages resources, and executes its work.</li>
+        <li><strong>Adaptability:</strong> How effectively the team identifies problems, responds to feedback, and learns from experience.</li>
+        <li><strong>Resilience:</strong> How well the team navigates setbacks, manages pressure, supports its members, and maintains momentum through uncertainty.</li>
+        <li><strong>Leadership:</strong> How effectively leadership provides direction, listens to different perspectives, encourages open dialogue, and supports continuous improvement.</li>
+      </ul>
+      <p>The assessment combines individual ratings with open-ended reflection questions to develop a shared picture of team strengths and opportunities for improvement. Its purpose is not to evaluate individual employees, but to help teams identify patterns, strengthen collaboration, and determine where focused action could improve team effectiveness.</p>
+    </section>
+
+    <section id="home" class="assessment-card">
+      <h2>Choose your path</h2>
+      <div class="grid">
+        <div>
+          <h3>I'm a team member</h3>
+          <p class="muted">Enter the team assessment code you received, then complete the assessment independently.</p>
+          <label for="participantCode">Team assessment code</label>
+          <input id="participantCode" autocomplete="off" placeholder="Enter code">
+          <button class="btn" id="joinBtn" style="margin-top:12px">Begin assessment</button>
+        </div>
+        <div>
+          <h3>I'm coordinating a team</h3>
+          <p class="muted">Create an assessment, share the code, and check response count. Save the private coordinator key securely so you can reopen the dashboard later.</p>
+          <label for="teamName">Team name</label>
+          <input id="teamName" placeholder="e.g., Service Delivery Team">
+          <button class="btn" id="createBtn" style="margin-top:12px">Create team assessment</button>
+        </div>
+        <div>
+          <h3>Reopen an assessment</h3>
+          <p class="muted">Already created an assessment? Enter its team code and the private coordinator key you saved.</p>
+          <label for="recoverCode">Team assessment code</label>
+          <input id="recoverCode" autocomplete="off" placeholder="Enter team code">
+          <label for="recoverKey">Private coordinator key</label>
+          <input id="recoverKey" autocomplete="off" type="password" placeholder="Enter coordinator key">
+          <button class="btn secondary" id="recoverBtn" style="margin-top:12px">Reopen coordinator dashboard</button>
+        </div>
+      </div>
+      <p id="homeMessage" role="status"></p>
+    </section>
+
+    <section id="participant" class="assessment-card hidden">
+      <button class="btn secondary" id="backBtn">← Back</button>
+      <h2>Team Health Assessment</h2>
+      <p class="muted">Rate each statement from 1 (Strongly disagree) to 5 (Strongly agree). Answer based on your experience. All 25 ratings are required.</p>
+      <div id="questions"></div>
+      <div class="domain">
+        <h3>Reflection questions</h3>
+        <label for="open1">What most helps your team perform at its best?</label><textarea id="open1" maxlength="1500"></textarea>
+        <label for="open2">What most gets in the way of your team's effectiveness?</label><textarea id="open2" maxlength="1500"></textarea>
+        <label for="open3">What is one thing leadership could improve?</label><textarea id="open3" maxlength="1500"></textarea>
+      </div>
+      <button class="btn" id="submitBtn">Submit confidential response</button>
+      <p id="submitMessage" role="status"></p>
+    </section>
+
+    <section id="thanks" class="assessment-card hidden">
+      <h2>Thank you for contributing</h2>
+      <p>Your response has been recorded. Your individual answers will not be shown to the team coordinator. You may now close this page.</p>
+    </section>
+
+    <section id="coordinator" class="assessment-card hidden">
+      <h2>Team coordinator</h2>
+      <p class="muted">Keep this private coordinator link secure. Anyone with this link can view compiled results and close the assessment.</p>
+      <div id="coordinatorInfo"></div>
+      <div class="grid">
+        <button class="btn secondary" id="refreshBtn">Refresh response count</button>
+        <button class="btn" id="reportBtn">View compiled report</button>
+        <button class="btn secondary" id="closeBtn">Close assessment</button>
+      </div>
+      <p id="coordMessage" role="status"></p>
+      <div id="report" class="hidden"></div>
+    </section>
+  </div>
+</main>
+<footer>
+  <div class="wrap foot-inner">
+    <span>Building Better Organizations</span>
+    <span><a href="https://substack.com/@buildingbetterorganizations">Substack</a> · <a href="https://www.linkedin.com/in/chris-clause-phd-4a120318">LinkedIn</a></span>
+  </div>
+</footer>
+<script>
+/* Configure after deploying the Supabase Edge Functions. */
+const API_BASE = "https://doeqpvpndjwsanjpuldp.supabase.co/functions/v1";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_n7GJGjKEcMmGcb3eBfxOEA_mg5j9NW-";
+const MIN_RESPONSES = 2;
+
+const domains = [
+{name:"Clarity",questions:[
+"I understand our team’s purpose and how it connects to the broader mission.",
+"Our priorities are clear and consistently communicated.",
+"I understand what success looks like in my role.",
+"Our stated priorities remain stable even during change.",
+"There is alignment between what we say is important and where we focus."
+]},
+{name:"Performance",questions:[
+"Our team consistently follows through on commitments.",
+"We track progress against goals in a meaningful way.",
+"We have the resources needed to meet expectations.",
+"Workloads are manageable and sustainable.",
+"Our team operates with a clear and consistent execution rhythm."
+]},
+{name:"Adaptability",questions:[
+"We identify problems quickly.",
+"We adjust course when something isn’t working.",
+"We actively seek out better ways of doing things.",
+"We use feedback to improve how we work.",
+"We learn from mistakes and use those lessons in future work."
+]},
+{name:"Resilience",questions:[
+"Our team can navigate setbacks without losing sight of its purpose.",
+"We support one another during periods of pressure or uncertainty.",
+"We recover and regain momentum after difficult periods.",
+"We can discuss challenges openly and constructively.",
+"We adapt our approach when circumstances change."
+]},
+{name:"Leadership",questions:[
+"Leadership communicates a clear direction for the team.",
+"Leadership listens to and considers different perspectives.",
+"People are encouraged to raise concerns or disagree respectfully.",
+"Leadership provides the support and resources needed to succeed.",
+"Leadership helps the team learn and improve, rather than focusing only on blame."
+]}
+];
+let activeCode="", activeQuestions=[], currentMode="";
+const $=id=>document.getElementById(id);
+function show(id){["home","participant","thanks","coordinator"].forEach(x=>$(x).classList.toggle("hidden",x!==id))}
+function msg(id,text,cls=""){ $(id).className=cls; $(id).textContent=text;}
+async function api(fn,payload={}) {
+ if(!API_BASE) throw new Error("The backend has not been configured yet.");
+ if(!SUPABASE_PUBLISHABLE_KEY || SUPABASE_PUBLISHABLE_KEY.includes("PASTE_")) throw new Error("The public Supabase key has not been configured yet.");
+ const r=await fetch(API_BASE+"/"+fn,{
+   method:"POST",
+   headers:{
+     "Content-Type":"application/json",
+     "apikey":SUPABASE_PUBLISHABLE_KEY
+   },
+   body:JSON.stringify(payload)
+ });
+ const data=await r.json().catch(()=>({error:"Unexpected server response"}));
+ if(!r.ok) throw new Error(data.error||"Request failed. Please try again.");
+ return data;
+}
+function renderQuestions(){
+ const root=$("questions"); root.innerHTML="";
+ domains.forEach((d,di)=>{const section=document.createElement("div");section.className="domain";section.innerHTML=`<h3>${d.name}</h3><p class="muted small">Rate each statement based on your experience.</p>`;
+ d.questions.forEach((q,qi)=>{const n=di*5+qi;const row=document.createElement("div");row.className="question";row.innerHTML=`<div><b>${n+1}.</b> ${q}</div><div class="scale">${[1,2,3,4,5].map(v=>`<label><input type="radio" name="q${n}" value="${v}">${v}<br>${["Strongly disagree","Disagree","Neither","Agree","Strongly agree"][v-1]}</label>`).join("")}</div>`;section.appendChild(row)});root.appendChild(section)});
+}
+function validateAnswers(){const answers=[];for(let i=0;i<25;i++){const el=document.querySelector(`input[name="q${i}"]:checked`);if(!el){document.querySelector(`input[name="q${i}"]`).closest(".question").scrollIntoView({behavior:"smooth",block:"center"});throw new Error(`Please answer statement ${i+1}.`)}answers.push(Number(el.value))}return answers}
+function localToken(){let t=sessionStorage.getItem("tha_submission_token");if(!t){t=crypto.randomUUID();sessionStorage.setItem("tha_submission_token",t)}return t}
+$("joinBtn").onclick=async()=>{try{const code=$("participantCode").value.trim().toUpperCase();if(!code)throw new Error("Enter the team assessment code.");const d=await api("team-status",{code,participant:true});if(d.status!=="open")throw new Error("This assessment is closed.");activeCode=code;renderQuestions();show("participant");}catch(e){msg("homeMessage",e.message,"error")}};
+$("backBtn").onclick=()=>show("home");
+$("submitBtn").onclick=async()=>{try{$("submitBtn").disabled=true;const answers=validateAnswers();const payload={code:activeCode,submission_token:localToken(),answers,reflections:[$("open1").value.trim(),$("open2").value.trim(),$("open3").value.trim()]};await api("submit-response",payload);show("thanks")}catch(e){msg("submitMessage",e.message,"error")}finally{$("submitBtn").disabled=false}};
+function showCoordinatorDashboard(d, code, key, showKey=false){
+ sessionStorage.setItem("tha_coord_code",code);
+ sessionStorage.setItem("tha_coord_key",key);
+ $("coordinatorInfo").innerHTML=`<p><b>Team:</b> ${escapeHtml(d.team_name||"Team")}</p><p><b>Assessment code to share:</b> <code>${escapeHtml(code)}</code></p><p><b>Responses received:</b> <span id="count">${Number(d.response_count)||0}</span></p><p><b>Status:</b> <span id="status">${escapeHtml(d.status||"open")}</span></p><p><a href="${location.origin}${location.pathname}?code=${encodeURIComponent(code)}">Participant link</a></p>${showKey?`<p><b>Private coordinator key:</b> <code>${escapeHtml(key)}</code></p><p class="muted">Save this key in a password manager or another secure place. It will not be shown again.</p>`:"<p class=\"muted\">Coordinator access verified. Keep your private coordinator key secure.</p>"}`;
+ show("coordinator");
+ msg("coordMessage",`Minimum ${MIN_RESPONSES} responses required. ${(Number(d.response_count)||0)<MIN_RESPONSES?"Report is not yet available.":"Report is available."}`,(Number(d.response_count)||0)>=MIN_RESPONSES?"success":"");
+}
+$("createBtn").onclick=async()=>{try{const name=$("teamName").value.trim();if(!name)throw new Error("Enter a team name.");const d=await api("create-team",{team_name:name});showCoordinatorDashboard(d,d.code,d.coordinator_key,true);}catch(e){msg("homeMessage",e.message,"error")}};
+$("recoverBtn").onclick=async()=>{try{const code=$("recoverCode").value.trim().toUpperCase(),key=$("recoverKey").value.trim();if(!code||!key)throw new Error("Enter both the team code and private coordinator key.");const d=await api("team-status",{code,coordinator_key:key});showCoordinatorDashboard(d,code,key,false);}catch(e){msg("homeMessage",e.message,"error")}};
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+async function refresh(){const code=sessionStorage.getItem("tha_coord_code"),key=sessionStorage.getItem("tha_coord_key");if(!code||!key)throw new Error("Coordinator access is not available. Return home and reopen the assessment using its code and private coordinator key.");const d=await api("team-status",{code,coordinator_key:key});$("count").textContent=d.response_count;$("status").textContent=d.status;msg("coordMessage",`Minimum ${MIN_RESPONSES} responses required. ${d.response_count<MIN_RESPONSES?"Report is not yet available.":"Report is available."}`,d.response_count>=MIN_RESPONSES?"success":"");}
+$("refreshBtn").onclick=async()=>{try{await refresh()}catch(e){msg("coordMessage",e.message,"error")}};
+$("closeBtn").onclick=async()=>{try{const code=sessionStorage.getItem("tha_coord_code"),key=sessionStorage.getItem("tha_coord_key");const d=await api("team-status",{code,coordinator_key:key,close:true});$("status").textContent=d.status;msg("coordMessage","Assessment closed. New submissions are disabled.","success");}catch(e){msg("coordMessage",e.message,"error")}};
+$("reportBtn").onclick=async()=>{try{const code=sessionStorage.getItem("tha_coord_code"),key=sessionStorage.getItem("tha_coord_key");const d=await api("team-report",{code,coordinator_key:key});renderReport(d);$("report").classList.remove("hidden");}catch(e){msg("coordMessage",e.message,"error")}};
+function renderReport(d){let html=`<h2>Compiled Team Health Report</h2><p><b>${escapeHtml(d.team_name)}</b> · ${d.response_count} responses · ${escapeHtml(d.status)}</p><p class="muted">Compiled team-level results only. Individual responses are not available in this report.</p>`;d.domains.forEach(x=>{html+=`<div class="score-row"><strong>${escapeHtml(x.name)}</strong><div class="bar"><span style="width:${x.score/5*100}%"></span></div><b>${x.score.toFixed(2)}/5</b></div>`});html+=`<h3>Diagnostic drivers</h3>`;d.drivers.forEach(x=>{html+=`<div class="score-row"><strong>${escapeHtml(x.name)}</strong><div class="bar"><span style="width:${x.score/5*100}%"></span></div><b>${x.score.toFixed(2)}/5</b></div>`});html+=`<p class="muted">Open-ended comments are intentionally excluded from this first version to reduce the risk of identifying respondents in small teams.</p><button class="btn" onclick="window.print()">Print / Save as PDF</button>`;$("report").innerHTML=html;}
+const params=new URLSearchParams(location.search);if(params.get("code")){$("participantCode").value=params.get("code")}
+</script>
+</body>
+</html>
